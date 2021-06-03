@@ -11,22 +11,31 @@ def inorder(temp):
     inorder(temp.left)
     print(temp.val,end=" ")
     inorder(temp.right)
+def preorder(temp):
+    if not temp:
+        return
+    print(temp.val,end=" ")
+    preorder(temp.left)
+    preorder(temp.right)
+def postorder(temp):
+    if not temp:
+        return
+    postorder(temp.left)
+    postorder(temp.right)
+    print(temp.val,end=" ")
 
 def insert(root,val):
     if not root:
         root= Node(val)
         return 
-    q=[]
-    q.append(root)
+    q=[root]
     while(len(q)):
         temp=q.pop(0)
-
         if(not temp.left):
             temp.left=Node(val)
             break
         else:
             q.append(temp.left)
-
         if(not temp.right):
             temp.right=Node(val)
             break
